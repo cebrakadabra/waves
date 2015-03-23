@@ -23,19 +23,31 @@ describe('Test the business logic of the waves animation', function() {
     }));
 
 
-  describe('Tests depending on the Canvas itself', function(){
+    describe('Event Listeners', function(){
+      describe('touchstart', function(){
+        
+        it('on touchstart mouseDown should be true', function(){
+          scope.$broadcast('touchstart');
+          expect(element.mouseDown).toBe(true);
+        });
 
-    it("should contain a canvas tag with proper size", function() {
-      expect(element.attr('height')).toBe('400px');
-      expect(element.attr('width')).toBe('1000px');
-    });
+      });
+    });  
 
-    // it("should contain a canvas tag with proper config", function() {
-    //   expect(element.attr('height')).toBe('400px');
-    //   expect(element.attr('width')).toBe('1000px');
-    // });
 
-  });  
+    describe('Tests depending on the Canvas itself', function(){
+
+      it("should contain a canvas tag with proper size", function() {
+        expect(element.attr('height')).toBe('400px');
+        expect(element.attr('width')).toBe('1000px');
+      });
+
+      // it("should contain a canvas tag with proper config", function() {
+      //   expect(element.attr('height')).toBe('400px');
+      //   expect(element.attr('width')).toBe('1000px');
+      // });
+
+    });  
 
 
   });
