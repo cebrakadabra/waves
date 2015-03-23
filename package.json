@@ -1,0 +1,28 @@
+{
+  "name": "waves",
+  "version": "1.0.0",
+  "description": "This is an AngularJS Directive for a waves animation",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cebrakadabra/waves.git"
+  },
+  "author": "Christoph Eberl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cebrakadabra/waves/issues"
+  },
+  "homepage": "https://github.com/cebrakadabra/waves",
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.5"
+  }
+}
