@@ -15,7 +15,6 @@ app.directive('wavesDirective', function() {
 			function init() {
 				
 				canvas = document.createElement('canvas');
-							
 		        canvas.width = scope.width;
 				canvas.height = scope.height;
 				

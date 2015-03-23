@@ -23,14 +23,17 @@ describe('Test the business logic of the waves animation', function() {
     }));
 
 
-  describe('tests', function(){
+  describe('Tests depending on the Canvas itself', function(){
 
     it("should contain a canvas tag with proper size", function() {
-      var height = document.innerHeight;
-      var width = document.innerHeight;
       expect(element.attr('height')).toBe('400px');
       expect(element.attr('width')).toBe('1000px');
     });
+
+    // it("should contain a canvas tag with proper config", function() {
+    //   expect(element.attr('height')).toBe('400px');
+    //   expect(element.attr('width')).toBe('1000px');
+    // });
 
   });  
 
