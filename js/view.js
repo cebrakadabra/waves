@@ -1,6 +1,7 @@
 app.directive('wavesDirective', function() {
 	return {
-		scope: {},
+		scope: {
+		},
 		link: function(scope, element, attrs) {
 
 			var canvas, context, wave1 = [], wave2 = [], wave3 = [], mouse = { x: innerWidth * 0.5, y: innerHeight * 0.5 }, angle = 0, mouseDown = true, interactive = true, FPS = 60;

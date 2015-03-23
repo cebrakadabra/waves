@@ -2,21 +2,26 @@
 
 /* jasmine specs for controllers go here */
 describe('Test the business logic of the waves animation', function() {
+  var element, scope;
 
   beforeEach(module('angularapp'));
 
 
-  describe('Test if testing works', function(){
+  describe('directive: waves-Directive', function(){
 
 
 
-    it('testing should work', inject(function($controller) {
-      var scope = {},
-        ctrl = $controller('MainCtrl', {$scope:scope});
-        
-        expect(scope.test).toBe(100);
+    ibeforeEach(inject(function($rootScope, $compile) {
+    scope = $rootScope.$new();
 
-    }));
+    element =
+        '<div waves-Directive size="{{size}}"></waves-Directive>';
+
+    scope.size = 100;
+
+    element = $compile(element)(scope);
+    scope.$digest();
+  }));
 
 
 
