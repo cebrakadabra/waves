@@ -1,6 +1,8 @@
 app.directive('wavesDirective', function() {
 	return {
 		scope: {
+			width: '@',
+			height: '@'
 		},
 		link: function(scope, element, attrs) {
 
@@ -14,8 +16,8 @@ app.directive('wavesDirective', function() {
 				
 				canvas = document.createElement('canvas');
 							
-		        canvas.width = innerWidth;
-				canvas.height = innerHeight;
+		        canvas.width = scope.width;
+				canvas.height = scope.height;
 				
 				canvas.style.position = 'absolute';
 				canvas.style.top = 0;
