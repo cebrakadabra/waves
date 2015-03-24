@@ -27,13 +27,27 @@ describe('Test the business logic of the waves animation', function() {
     describe('Event Listeners', function(){
       describe('touchstart', function(){
         
-        it('on touchstart mouseDown should be true', function(){
-          browserTrigger(element, 'mousedown');
-          expect($rootScope.mouseDown).toEqual(true);
-        });
+        // it('on touchstart mouseDown should be true', function(){
+        //   browserTrigger(element, 'mousedown');
+        //   expect($rootScope.mouseDown).toEqual(true);
+        // });
 
       });
     });  
+
+    describe('Test Controller Input Values', function(){
+      it('should have a width of window.innerWidth', inject(function($controller){
+        var scope = {},
+        ctrl = $controller('MainCtrl', {$scope:scope});
+        expect(scope.width).toBe(window.innerWidth);
+      }));
+
+      it('should have a height of window.innerHeight', inject(function($controller){
+        var scope = {},
+        ctrl = $controller('MainCtrl', {$scope:scope});
+        expect(scope.height).toBe(window.innerHeight);
+      }));
+    });
 
 
     describe('Tests depending on the Canvas itself', function(){
