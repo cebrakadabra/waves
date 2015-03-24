@@ -1,12 +1,23 @@
 app.directive('wavesDirective', function() {
 	return {
+		restrict: 'E',
+		replace: true,
 		scope: {
 			width: '@',
 			height: '@'
 		},
 		link: function(scope, element, attrs) {
 
-			var canvas, context, wave1 = [], wave2 = [], wave3 = [], mouse = { x: innerWidth * 0.5, y: innerHeight * 0.5 }, angle = 0, mouseDown = true, interactive = true, FPS = 60;
+			var canvas;
+			var context;
+			var wave1 = [], 
+			wave2 = [],
+			wave3 = [];
+			var mouse = { x: innerWidth * 0.5, y: innerHeight * 0.5 };
+			var angle = 0;
+			scope.mouseDown = true; 
+			var interactive = true;
+			var FPS = 60;
 
 			/*
 		 	 * Init.
@@ -93,7 +104,7 @@ app.directive('wavesDirective', function() {
 			
 				event.preventDefault();
 				
-				mouseDown = true;
+				scope.mouseDown = true;
 			
 			}
 			
@@ -105,7 +116,7 @@ app.directive('wavesDirective', function() {
 			
 				event.preventDefault();
 				
-				mouseDown = false;
+				scope.mouseDown = false;
 			
 			}
 			
@@ -122,7 +133,7 @@ app.directive('wavesDirective', function() {
 				
 				if(interactive)
 				
-					mouseDown = interactive = false;
+					scope.mouseDown = interactive = false;
 			
 			}
 			
@@ -134,7 +145,7 @@ app.directive('wavesDirective', function() {
 			
 				event.preventDefault();
 			
-				mouseDown = true;
+				scope.mouseDown = true;
 			
 			}
 			
@@ -146,7 +157,7 @@ app.directive('wavesDirective', function() {
 			
 				event.preventDefault();
 				
-				mouseDown = false;
+				scope.mouseDown = false;
 			
 			}
 			
@@ -163,7 +174,7 @@ app.directive('wavesDirective', function() {
 				
 				if(interactive)
 				
-					mouseDown = interactive = false;
+					scope.mouseDown = interactive = false;
 			
 			}
 			
@@ -283,15 +294,15 @@ app.directive('wavesDirective', function() {
 					point3.vy *= friction;
 					
 					// Threshold
-					if(distanceTo(mouse, point1) < threshold && mouseDown)
+					if(distanceTo(mouse, point1) < threshold && scope.mouseDown)
 					
 						point1.vy += (mouse.y - point1.y) * (interactive ? 0.03 : 0.009);
 						
-					if(distanceTo(mouse, point2) < threshold && mouseDown)
+					if(distanceTo(mouse, point2) < threshold && scope.mouseDown)
 					
 						point2.vy += (mouse.y - point2.y) * (interactive ? 0.02 : 0.008);
 						
-					if(distanceTo(mouse, point3) < threshold && mouseDown)
+					if(distanceTo(mouse, point3) < threshold && scope.mouseDown)
 					
 						point3.vy += (mouse.y - point3.y) * (interactive ? 0.01 : 0.007);
 					

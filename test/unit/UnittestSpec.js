@@ -12,11 +12,12 @@ describe('Test the business logic of the waves animation', function() {
     beforeEach(inject(function($rootScope, $compile) {
       scope = $rootScope.$new();
 
-      element =
-          '<div waves-Directive width="{{width}}" height="{{height}}"></waves-Directive>';
+      element = '<div waves-Directive width="{{width}}" height="{{height}}"></waves-Directive>';
 
       scope.width = "1000px";
       scope.height = "400px";
+
+      scope.mouseDown = true;
 
       element = $compile(element)(scope);
       scope.$digest();
@@ -27,8 +28,8 @@ describe('Test the business logic of the waves animation', function() {
       describe('touchstart', function(){
         
         it('on touchstart mouseDown should be true', function(){
-          scope.$broadcast('touchstart');
-          expect(element.mouseDown).toBe(true);
+          browserTrigger(element, 'mousedown');
+          expect($rootScope.mouseDown).toEqual(true);
         });
 
       });
